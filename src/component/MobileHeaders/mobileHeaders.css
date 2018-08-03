@@ -1,0 +1,16 @@
+.MobileHeaders-wrapper{
+
+}
+.MobileHeaders-mobile-title{
+    display: none;
+
+}
+
+@media screen and (max-width: 370px) {
+
+    .MobileHeaders-mobile-title{
+        display: inline;
+        font-family: 'Acme', sans-serif;
+    }
+
+}

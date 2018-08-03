@@ -1,0 +1,31 @@
+.BookHeaders-wrapper{
+    padding: 0.3em;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 0.3em;
+    margin: 0.3em;
+}
+
+.BookHeaders-wrapper > span {
+    font-family: 'Acme', sans-serif;
+    flex: 1.5;
+}
+
+.BookHeaders-wrapper > span:first-child {
+    flex: 1;
+}
+.BookHeaders-wrapper > span:nth-child(4) {
+    flex: 4;
+}
+
+
+.BookHeaders-icon {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 370px) {
+    .BookHeaders-wrapper{
+        display: none;
+    }
+}

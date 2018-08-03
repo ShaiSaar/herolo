@@ -1,0 +1,10 @@
+const ACTION= {
+    INITIAL_INIT: "INITIAL_INIT",
+    SET_BOOKS : "SET_BOOKS",
+    BOOK_EDIT : "BOOK_EDIT",
+    DELETE_BOOK : "DELETE_BOOK",
+    ADD_BOOK : "ADD_BOOK",
+    EDIT_CURR_BOOK : "EDIT_CURR_BOOK",
+}
+
+export default ACTION

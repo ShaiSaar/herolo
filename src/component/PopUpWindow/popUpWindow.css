@@ -1,0 +1,34 @@
+.PopUpWindow-outer-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #222222;
+    opacity: 0.5;
+}
+
+.PopUpWindow-inner-wrapper{
+    padding: 15px;
+    border-radius: 5px;
+    opacity: 1;
+    width:35%;
+    height: 230px;
+    background: #ffffff;
+    /*background: linear-gradient(to bottom right, #336699, #29c087);*/
+    /*background: linear-gradient(to bottom right, #2ebaf2, #bbe6f7);*/
+    background: linear-gradient(to bottom right, #232323, #a09fa6);
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+@media screen and (max-width: 370px) {
+    .PopUpWindow-inner-wrapper{
+        width:90%;
+    }
+}

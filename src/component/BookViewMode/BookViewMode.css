@@ -1,0 +1,11 @@
+.BookViewMode-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+.BookViewMode-wrapper > span {
+    flex: 1;
+}
+
+.BookViewMode-wrapper > span:first-child {
+    flex: 0.3;
+}

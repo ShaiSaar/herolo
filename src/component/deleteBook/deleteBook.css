@@ -1,0 +1,37 @@
+.DeleteBook-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.DeleteBook-wrapper > * {
+    padding:0.2em;
+    margin:0.2em;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+.DeleteBook-wrapper > h2{
+    font-family: 'Lobster', cursive;
+}
+.DeleteBook-wrapper > h3{
+    font-size: 1.25em;
+}
+
+.DeleteBook-wrapper > h4 {
+    font-size: 1em;
+}
+
+.DeleteBook-button-wrapper{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.DeleteBook-button-wrapper > button {
+    flex: 1;
+    padding:0.2em;
+    margin:0.2em;
+    border-radius: 0.3em;
+    border: 0.1em solid #343438;
+    background-color: #43ada5;
+    color: #FFF;
+    font-family: 'Lobster', cursive;
+}

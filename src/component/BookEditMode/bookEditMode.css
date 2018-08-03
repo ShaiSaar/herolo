@@ -1,0 +1,43 @@
+.BookEditMode-form-wrapper{
+   display: flex;
+    flex-direction: column;
+}
+
+.BookEditMode-form-button-wrapper{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.BookEditMode-form-button-wrapper > input {
+    flex: 1;
+    background-color: #43ada5;
+    color: #FFF;
+    font-family: 'Lobster', cursive;
+}
+
+.BookEditMode-form-wrapper input {
+    padding:0.2em;
+    margin:0.2em;
+    border-radius: 0.3em;
+    border: 0.1em solid #343438;
+}
+
+.BookEditMode-wrapper > h2{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    padding: 0.1em;
+}
+
+.BookEditMode-warning {
+    background-color: #ffcac5;
+}
+
+.BookEditMode-wrapper >p{
+    padding: 0.1em;
+    color: #f4f5ff;
+    text-align: center;
+    margin-top: 0.2em;
+}
+

@@ -1,0 +1,9 @@
+.Loading-wrapper{
+    padding: 0.3em;
+    background-color: white;
+    border-radius: 0.3em;
+    margin: 0.3em;
+}
+.Loading-wrapper > h2{
+    font-family: 'Acme', sans-serif;
+}

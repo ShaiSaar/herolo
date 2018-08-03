@@ -1,0 +1,10 @@
+.AddNewBookButton-button{
+    background-color: white;
+    padding: 0.6em;
+    display: block;
+    margin: auto;
+    border: none;
+    border-radius: 0.3em;
+    font-family: 'Acme', sans-serif;
+    font-size: 1em;
+}
