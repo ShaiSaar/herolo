@@ -19,28 +19,18 @@ class Book extends PureComponent {
         }
 
     componentDidMount(){
-        this.ggg()
+        this.bookDetailsHandler()
     }
     componentDidUpdate(){
-        this.ggg()
+        this.bookDetailsHandler()
     }
 
-    togglePopUpDelete = ()=>{
-        this.setState((prevState)=>({popUpDelete: !prevState.popUpDelete}))
-    }
-
-    ggg =()=>{
+    bookDetailsHandler =()=>{
         let {author,publishedDate,title,id} = this.props.book
         title = titleValidation(title)
         publishedDate = (isDateIsValid(publishedDate))? publishedDate : "Date Not Valid"
         this.setState({id, author, publishedDate, title})
     }
-
-    deleteBookHandler =()=>{
-        this.props.deleteBook(this.props.book)
-        this.togglePopUpDelete()
-    }
-
 
 
   render() {

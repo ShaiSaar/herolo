@@ -28,6 +28,7 @@
     color: white;
     font-size: 2em;
     padding: 0.1em;
+    margin-bottom: 0.2em;
 }
 
 .BookEditMode-warning {
@@ -38,6 +39,6 @@
     padding: 0.1em;
     color: #f4f5ff;
     text-align: center;
-    margin-top: 0.2em;
+    margin-top: 0.1em;
 }
 

@@ -23,7 +23,7 @@
     margin: 0.1em;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 740px) {
     .Book-wrapper{
         flex-direction: column;
         background-image: url('../../assets/feather.jpg');

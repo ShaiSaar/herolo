@@ -14,8 +14,7 @@ const BookHeaders = ()=> {
           <span><FontAwesomeIcon className="BookHeaders-icon"  icon="book" /> AUTHOR</span>
           <span><FontAwesomeIcon className="BookHeaders-icon"  icon="book" /> PUBLISHED</span>
           <span><FontAwesomeIcon className="BookHeaders-icon"  icon="book" /> TITLE</span>
-          <FontAwesomeIcon className="Book-icon"  icon="edit" />
-          <FontAwesomeIcon className="Book-icon"  icon="trash" />
+          <p className="BookHeaders-icon-replacement"/>
       </li>
     );
 }
