@@ -7,7 +7,7 @@ import {BrowserRouter, Route, Redirect} from 'react-router-dom'
 class App extends Component {
   render() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <div className="App-wrapper">
               <Switch>
                   <Route path='/bookList' name='bookList' exact={true} strict={true} component={BookList}/>

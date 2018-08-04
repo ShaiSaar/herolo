@@ -1,15 +1,11 @@
 .BookList-wrapper{
     height: 100%;
 }
-.BookList-ul-list{
-    /*background-color: white;*/
-    /*border-radius: 0.3em;*/
-}
 
 .BookList-wrapper > h2{
     font-family: 'Lobster', cursive;
     text-align: center;
     color: white;
     font-size: 3em;
-    padding: 0.1em;
+    padding: 0.3em;
 }

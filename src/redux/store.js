@@ -12,4 +12,7 @@ const initialState = {
 export const store = createStore(
     Reducer,
     initialState,
-    applyMiddleware(thunk));
+    applyMiddleware(
+        thunk
+    )
+);

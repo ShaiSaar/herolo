@@ -1,48 +1,28 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import './book_list.css';
 import Book from "../../component/book/book";
 import {connect} from "react-redux";
-import {setBooks, setEditMode, deleteBook, addBook, editBook, loadAll} from "../../redux/general-actions";
+import * as action from "../../redux/general-actions";
 import BookEditMode from "../../component/BookEditMode/bookEditMode";
 import BookHeaders from "../../component/BookHeaders/bookHeaders";
 import AddNewBookButton from "../../component/AddNewBookButton/addNewBookButton";
 import Loading from "../../component/loading/loading";
 
 
-class BookList extends Component {
-    state = {
-        loading: false,
-        headers: ["Book ID", "Author", "Published Date", "Title"]
-    }
+class BookList extends PureComponent {
 
     componentDidMount() {
-        // axios.get('moc_data.json').then((response)=> {
-        //     console.log(response.data);
-        // })
-        //     .catch((error)=> {
-        //         console.log(error);
-        //     });
-        // this.setState({books:this.props.books})
-        setTimeout(() => this.props.setBooks(), 2000)
-
-    }
-
-    setBookEditHandler = (book) => {
-        this.props.setEditMode(book)
-    }
-
-    deleteBookHandler = (book) => {
-        this.props.deleteBook(book)
-    }
+        this.props.fetchBooks()
+            }
 
     showEditModeHandler = () => (<BookEditMode title={this.props.editBookMode}
-                                               close={this.setBookEditHandler.bind(null, null)}
+                                               close={this.props.setEditMode.bind(null, null)}
                                                save={this.props.editBook} add={this.props.addBook}
                                                books={this.props.books}/>)
 
     showBooksHandler = () => (this.props.books.map((entry, key) => <Book title={entry} key={key}
-                                                                         switchMode={this.setBookEditHandler}
-                                                                         deleteBook={this.deleteBookHandler}/>))
+                                                                         switchMode={this.props.setEditMode}
+                                                                         deleteBook={this.props.deleteBook}/>))
 
     bookWrapperHandler = () => (<ul className="BookList-ul-list">{this.showBooksHandler()}</ul>)
 
@@ -51,8 +31,8 @@ class BookList extends Component {
             <div className="BookList-wrapper">
                 <h2>Book List</h2>
                 <BookHeaders/>
-                {(this.props.books.length === 0) ? <Loading/> : this.bookWrapperHandler()}
-                <AddNewBookButton click={this.setBookEditHandler.bind(null, {})}/>
+                {(!this.props.books.length) ? <Loading/> : this.bookWrapperHandler()}
+                <AddNewBookButton click={this.props.setEditMode.bind(null, {})}/>
                 {(this.props.editBookMode) ? this.showEditModeHandler() : null}
             </div>
         );
@@ -68,12 +48,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setBooks: () => dispatch(setBooks()),
-        loadAll: () => dispatch(loadAll()),
-        setEditMode: (book) => dispatch(setEditMode(book)),
-        deleteBook: (book) => dispatch(deleteBook(book)),
-        addBook: (book) => dispatch(addBook(book)),
-        editBook: (book) => dispatch(editBook(book)),
+        setBooks: () => dispatch(action.setBooks()),
+        fetchBooks: () => dispatch(action.fetchBooks()),
+        setEditMode: (book) => dispatch(action.setEditMode(book)),
+        deleteBook: (book) => dispatch(action.deleteBook(book)),
+        addBook: (book) => dispatch(action.addBook(book)),
+        editBook: (book) => dispatch(action.editBook(book)),
 
 
     };

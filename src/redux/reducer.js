@@ -4,8 +4,6 @@ import * as METHODS from "./methods";
 export default function reducer(state, action){
     switch (action.type){
 
-        case ACTIONS.INITIAL_INIT:
-            return METHODS.fetchBooks(state, action);
         case ACTIONS.SET_BOOKS:
             return METHODS.setBooks(state, action)
         case ACTIONS.BOOK_EDIT:

@@ -1,5 +1,6 @@
 .App-wrapper {
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   padding: 0.2em;
-
+  line-height: 1.5em;
 }

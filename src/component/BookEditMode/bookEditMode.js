@@ -24,10 +24,10 @@ class BookEditMode extends Component {
         for(let entry of [author,publishedDate,title]){
             entry.classList.remove("BookEditMode-warning")}
 
-        if(author.value.length ===0){msgErr = errField(author, true)}
-        if(!isDateIsValid(publishedDate.value)){msgErr = errField(publishedDate, true)}
-        if(!this.validateTitle(title.value)){msgErr =errField(title,true)}
-        if(isBookExist(title.value, this.props.books,this.props.title.title)){msgErr =errField(title,false)}
+        if(author.value.trim().length ===0){msgErr = errField(author, true)}
+        if(!isDateIsValid(publishedDate.value.trim())){msgErr = errField(publishedDate, true)}
+        if(!this.validateTitle(title.value.trim())){msgErr =errField(title,true)}
+        if(isBookExist(title.value.trim(), this.props.books,this.props.title.title)){msgErr =errField(title,false)}
 
         function errField(field, errType) { // errType: true-invalid entry, false- book title exist
             field.classList.add("BookEditMode-warning")
@@ -36,7 +36,7 @@ class BookEditMode extends Component {
 
         //Book was validated
         if(!msgErr){
-            let obj= {author: author.value, publishedDate:publishedDate.value, title:validateHandler(title.value) }
+            let obj= {author: author.value.trim(), publishedDate:publishedDate.value.trim(), title:validateHandler(title.value.trim()) }
             let newBook = {...this.props.title,...obj}
 
             if(this.props.title.id){this.props.save(newBook)}

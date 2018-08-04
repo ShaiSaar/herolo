@@ -1,18 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './popUpWindow.css';
 
-class PopUpWindow extends Component {
-
-    render() {
+const PopUpWindow = (props)=>{
         return (
             <div>
                 <div className="PopUpWindow-outer-wrapper"/>
                 <div className="PopUpWindow-inner-wrapper">
-                    {this.props.children}
+                    {props.children}
                 </div>
-            </div>
-        );
-    }
+            </div>)
 }
+
 
 export default PopUpWindow;

@@ -1,16 +1,24 @@
 import ACTIONS from './action-names'
+import axios from 'axios'
 
-export function loadAll() {
-    return {
-        type: ACTIONS.INITIAL_INIT,
-    }
+
+export const fetchBooks = () => (dispatch, getState) => {
+    // fetch('moc_data.json')
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data)
+    //         dispatch(setBooks(data))
+    //     })
+    axios.get('moc_data.json')
+        .then(res => {dispatch(setBooks(res.data))})
 }
+
 
 export function setBooks(books) {
     return {
         type: ACTIONS.SET_BOOKS,
         payload: {
-            books: MOC_DATA
+            books
 
         }
     }
@@ -52,14 +60,3 @@ export function deleteBook(book) {
         }
     }
 }
-
-
-const MOC_DATA = [
-    {author: "J. K. Rowling", publishedDate: "1997-06-26", title: "The Philosopher's Stone"},
-    {author: "J. K. Rowling", publishedDate: "1998-07-02", title: "The Chamber of Secrets"},
-    {author: "J. K. Rowling", publishedDate: "1999-07-08", title: "The Prisoner of Azkaban "},
-    {author: "J. K. Rowling", publishedDate: "2000-07-08", title: "The Goblet of Fire"},
-    {author: "J. K. Rowling", publishedDate: "2003-06-21", title: "The Order of the Phoenix"},
-    {author: "J. K. Rowling", publishedDate: "2005-07-16", title: "The Half-Blood Prince"},
-    {author: "J. K. Rowling", publishedDate: "2007-07-21", title: "The Deathly Hallows"},
-]

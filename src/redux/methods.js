@@ -1,7 +1,5 @@
 import {validateHandler, isDateIsValid} from "./../GeneralMethods";
 import * as _ from "lodash";
-// import axios from 'axios'
-// import * as ACTIONS from './general-actions'
 
 export function setBooks(state, action){
     let {arr,id} = validation(action.payload.books, state.bookId)
@@ -12,26 +10,6 @@ export function setBooks(state, action){
         bookId:id
     };
 }
-
-export function fetchBooks(state, action){
-
-    // const books = axios.get('moc_data.json')
-
-    // return (dispatch)=>{
-    //     dispatch(ACTIONS.setBooks())
-    //     // books.then(function (response) {
-    //     //     console.log(response.data);
-    //     //     //dispatch(ACTIONS.setBooks(response.data))
-    //     // })
-    //     //     .catch(function (error) {
-    //     //         console.log(error);
-    //     //     });
-    // }
-
-    return {...state}
-
-}
-
 
 export function setEditMode(state, action){
     return {
