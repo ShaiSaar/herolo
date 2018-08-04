@@ -13,7 +13,7 @@ import DeleteBook from "../../component/DeleteBook/deleteBook";
 class BookList extends Component{
 
     componentDidMount() {
-        setTimeout(()=>{this.props.fetchBooks()},0)
+        this.props.fetchBooks()
             }
 
     showEditModeHandler = () => (<BookEditMode book={this.props.editBookMode}
