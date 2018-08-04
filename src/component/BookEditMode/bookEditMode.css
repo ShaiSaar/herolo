@@ -14,8 +14,10 @@
     color: #FFF;
     font-family: 'Lobster', cursive;
 }
-
-.BookEditMode-form-wrapper input {
+.BookEditMode-form-wrapper > input{
+    flex: 1;
+}
+.BookEditMode-form-wrapper  input {
     padding:0.2em;
     margin:0.2em;
     border-radius: 0.3em;
