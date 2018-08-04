@@ -1,9 +1,10 @@
 import moment from 'moment'
 
-export  function validateHandler(str){
+export  function titleValidation(str){
     let bookName = str.trim()
     //remove non English Letter (not including numbers)
     bookName= bookName.replace('-',' ')
+    bookName= bookName.replace('_',' ')
     bookName= bookName.replace(/[^0-9a-zA-Z ]/gi, '')
 
     // uppercase each first letter
@@ -40,6 +41,6 @@ export function isDateIsValid (date){
 
 export function isBookExist (bookName, bookList, originalName){
     if(originalName===bookName){return false}
-    let result = bookList.filter((book)=>book.title===bookName)
+    let result = bookList.filter((book)=>titleValidation(book.title)===bookName)
     return (result.length!==0)
 }

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import './bookEditMode.css';
 import PopUpWindow from "../PopUpWindow/popUpWindow";
-import {validateHandler,isDateIsValid,isBookExist} from "../../GeneralMethods";
+import {titleValidation,isDateIsValid,isBookExist} from "../../GeneralMethods";
 
 class BookEditMode extends Component {
+
     constructor(props) {
         super(props)
         this.authorRef =  React.createRef();
@@ -24,35 +25,42 @@ class BookEditMode extends Component {
         for(let entry of [author,publishedDate,title]){
             entry.classList.remove("BookEditMode-warning")}
 
+        //validate each field
         if(author.value.trim().length ===0){msgErr = errField(author, true)}
-        if(!isDateIsValid(publishedDate.value.trim())){msgErr = errField(publishedDate, true)}
-        if(!this.validateTitle(title.value.trim())){msgErr =errField(title,true)}
-        if(isBookExist(title.value.trim(), this.props.books,this.props.title.title)){msgErr =errField(title,false)}
+        if(!isDateIsValid(publishedDate.value)){msgErr = errField(publishedDate, true)}
+        if(!this.validateTitle(title.value)){msgErr =errField(title,true)}
+        if(isBookExist(title.value.trim(), this.props.books,this.props.book.title)){msgErr =errField(title,false)}
 
-        function errField(field, errType) { // errType: true-invalid entry, false- book title exist
+        // errType: true-invalid entry, false- book title exist
+        function errField(field, errType) {
             field.classList.add("BookEditMode-warning")
             return ((errType)?"Fields weren't filled correctly":"Book with this title already exist")
         }
 
         //Book was validated
         if(!msgErr){
-            let obj= {author: author.value.trim(), publishedDate:publishedDate.value.trim(), title:validateHandler(title.value.trim()) }
-            let newBook = {...this.props.title,...obj}
+            let obj= {author: author.value.trim(),
+                    publishedDate:publishedDate.value.trim(),
+                    title:titleValidation(title.value.trim()) }
+            let newBook = {...this.props.book,...obj}
 
-            if(this.props.title.id){this.props.save(newBook)}
+            if(this.props.book.id){
+                this.props.save(newBook)
+            }
             else {this.props.add(newBook)}
         } else (this.setState({errMsg:msgErr}))
     }
 
     validateTitle=(title)=>{
+        title = title.trim()
         if(title.length===0) {return false}
-        let copyTitle = validateHandler(title)
+        let copyTitle = titleValidation(title)
         return copyTitle.length === title.length;
 
     }
 
     render() {
-        const {id, author, publishedDate, title} = this.props.title
+        let {id, author, publishedDate, title} = this.props.book
         return (
             <PopUpWindow>
             <div className="BookEditMode-wrapper">

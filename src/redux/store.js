@@ -6,6 +6,7 @@ const initialState = {
     bookId: 1,
     books : [],
     editBookMode: null,
+    deleteBookMode: null,
 
 }
 

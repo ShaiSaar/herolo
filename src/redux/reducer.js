@@ -8,6 +8,8 @@ export default function reducer(state, action){
             return METHODS.setBooks(state, action)
         case ACTIONS.BOOK_EDIT:
             return METHODS.setEditMode(state, action)
+        case ACTIONS.DELETE_BOOK_MODE:
+            return METHODS.setDeleteMode(state, action)
         case ACTIONS.DELETE_BOOK:
             return METHODS.deleteBookFromStore(state, action)
         case ACTIONS.ADD_BOOK:

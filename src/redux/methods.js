@@ -1,8 +1,13 @@
-import {validateHandler, isDateIsValid} from "./../GeneralMethods";
 import * as _ from "lodash";
 
 export function setBooks(state, action){
-    let {arr,id} = validation(action.payload.books, state.bookId)
+    let arr = action.payload.books
+    let id = state.bookId
+
+    for(let entry of arr){
+        entry.id = id
+        id++
+    }
 
     return {
         ...state,
@@ -15,6 +20,13 @@ export function setEditMode(state, action){
     return {
         ...state,
         editBookMode: action.payload.book
+    };
+}
+
+export function setDeleteMode(state, action){
+    return {
+        ...state,
+        deleteBookMode: action.payload.book
     };
 }
 
@@ -36,6 +48,7 @@ export function editBookInStore(state, action){
     let arr = _.concat(state.books,[])
     let book = action.payload.book
     const index = arr.findIndex(o => o.id ===book.id);
+
     if(index===-1){return {...state}}
     arr[index] = {...book}
     return {
@@ -47,27 +60,14 @@ export function editBookInStore(state, action){
 
 
 export function deleteBookFromStore(state, action) {
-
-    let index = _.indexOf(state.books,action.payload.book)
-    console.log(index)
-
+    let index = state.books.findIndex(o => o.id ===action.payload.book.id);
     if(index===-1){return state}
     let arr = _.concat(state.books,[])
     arr.splice(index,1)
-
     return {
         ...state,
-        books: arr
+        books: arr,
+        deleteBookMode: null
     };
 }
 
-function validation(arr, bookID) {
-    let id = bookID
-    for(let entry of arr){
-        entry.title = validateHandler(entry.title)
-        entry.publishedDate = (isDateIsValid(entry.publishedDate))? entry.publishedDate : "Date Not Valid"
-        entry.id = id
-        id++
-    }
-    return {arr, id}
-}

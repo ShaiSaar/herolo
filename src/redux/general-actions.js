@@ -33,6 +33,14 @@ export function setEditMode(book) {
         }
     }
 }
+export function setDeleteMode(book) {
+    return {
+        type: ACTIONS.DELETE_BOOK_MODE,
+        payload: {
+            book: book
+        }
+    }
+}
 
 export function addBook(book) {
     return {
@@ -44,6 +52,7 @@ export function addBook(book) {
 }
 
 export function editBook(book) {
+
     return {
         type: ACTIONS.EDIT_CURR_BOOK,
         payload: {
@@ -60,3 +69,5 @@ export function deleteBook(book) {
         }
     }
 }
+
+
