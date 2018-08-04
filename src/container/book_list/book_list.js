@@ -6,8 +6,8 @@ import * as action from "../../redux/general-actions";
 import BookEditMode from "../../component/BookEditMode/bookEditMode";
 import BookHeaders from "../../component/BookHeaders/bookHeaders";
 import AddNewBookButton from "../../component/AddNewBookButton/addNewBookButton";
-import Loading from "../../component/loading/loading";
-import DeleteBook from "../../component/deleteBook/deleteBook";
+import Loading from "../../component/Loading/loading";
+import DeleteBook from "../../component/DeleteBook/deleteBook";
 
 
 class BookList extends Component{
