@@ -6,7 +6,9 @@ const PopUpWindow = (props)=>{
             <div>
                 <div className="PopUpWindow-outer-wrapper"/>
                 <div className="PopUpWindow-inner-wrapper">
+                    <div className="PopUpWindow-resizing-wrapper">
                     {props.children}
+                    </div>
                 </div>
             </div>)
 }

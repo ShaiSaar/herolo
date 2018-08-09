@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import './book_list.css';
 import Book from "../../component/book/book";
 import {connect} from "react-redux";
@@ -10,11 +10,13 @@ import Loading from "../../component/Loading/loading";
 import DeleteBook from "../../component/DeleteBook/deleteBook";
 
 
-class BookList extends Component{
+class BookList extends PureComponent{
 
     componentDidMount() {
         this.props.fetchBooks()
-            }
+
+    }
+
 
     showEditModeHandler = () => (<BookEditMode book={this.props.editBookMode}
                                                close={this.props.setEditMode.bind(null, null)}
@@ -25,7 +27,7 @@ class BookList extends Component{
                                                delete={this.props.deleteBook.bind(null, this.props.deleteBookMode)}
                                                cancel={this.props.setDeleteMode.bind(null, null)}/>)
 
-    showBooksHandler = () => (this.props.books.map((entry, key) => <Book book={entry} key={key}
+    showBooksHandler = () => (this.props.books.map((entry) => <Book book={entry} key={entry.id}
                                                                          editBookMode={this.props.setEditMode}
                                                                          deleteBookMode={this.props.setDeleteMode}/>))
 

@@ -3,12 +3,6 @@ import axios from 'axios'
 
 
 export const fetchBooks = () => (dispatch, getState) => {
-    // fetch('moc_data.json')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         dispatch(setBooks(data))
-    //     })
     axios.get('moc_data.json')
         .then(res => {dispatch(setBooks(res.data))})
 }
